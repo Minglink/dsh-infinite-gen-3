@@ -12,10 +12,11 @@
 
 > 🌐 **插件生态市场**：[DeepSeek Harness Hub - DeepSeek 官方与开源生态市场 | 插件发现与一键安装](https://deepseek.stream/)
 
-> ## 💬 DeepSeek 交流群
+> ## 💬 DeepSeek 交流群 & 社区
 >
 > ### 👉 **红队安全交流 8 群：`660475886`**
 > ### 👉 **DeepSeek 插件开发群：`1121385378`**
+> ### 👉 **腾讯频道技术交流社区：`pd86424753`**
 >
 > 🔥 欢迎进群交流红队攻防对抗心得、分享提示词与评测基准、探讨插件开发与生态共建！
 
@@ -219,8 +220,10 @@ chmod +x install.sh uninstall.sh
 
 ---
 
-## ☕ 赞赏支持 / Sponsor
+## 💬 交流社区 & ☕ 赞赏支持
 
-如果无限四代对你的红队研究与安全测试有所启发与帮助，欢迎请作者喝杯咖啡！
+如果无限四代对你的红队研究与安全测试有所启发与帮助，欢迎加入技术交流社区或请作者喝杯咖啡！
 
-<img src="./assets/sponsor.jpg" width="240" alt="赞赏码" />
+| 🌐 官方技术交流社区（腾讯频道） | ☕ 赞赏支持 / Sponsor |
+| :---: | :---: |
+| <img src="./assets/community.jpg" width="220" alt="DeepSeek网安逆攻防技术交流社区" /><br><sub><b>频道号：pd86424753</b></sub> | <img src="./assets/sponsor.jpg" width="220" alt="赞赏码" /><br><sub><b>请作者喝杯咖啡</b></sub> |
