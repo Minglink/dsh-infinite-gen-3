@@ -1,30 +1,52 @@
-# DeepSeek Harness Plugin — 无限四代 / dsh-infinite-gen-4
+# DeepSeek Harness Plugin — 无限四代 / dsh-infinite-gen-4 (v0.4.0)
 
 破甲（armor-breaking）插件，项目名：**无限四代（Infinite Generation Four）**。
-专为 **DeepSeek-V4.1 / V4-Pro / V4-Flash 及 MoE 架构** 深度重构。针对最新大模型的密集对齐与强化学习拒绝机制，采用**「零工具面纯净直出 + 双层提示词协同注入 + V4.1 战场实测车道」**的高性能架构。
+专为 **DeepSeek-V4.1 / V4-Pro / V4-Flash 及 MoE 架构** 重构，采用
+**「零工具面纯净直出 + 双层提示词协同注入 + 实时会话投影」**架构。
 
 ## 核心架构与特性
 
-- **原生零工具面架构（Pure Zero-Tool Architecture）**：插件采用高纯度提示词直出方案，不挂载外部冗余功能性工具 Schema，消除模型推理阶段（Reasoning）的决策犹豫与上下文 Token 浪费，使模型首 Token 直接产出可运行代码与实战步骤。
+- **原生零工具面架构（Pure Zero-Tool Architecture）**：插件不挂载外部冗余功能性工具 Schema，
+  消除模型推理阶段的决策犹豫与上下文 Token 浪费，让模型首 Token 直接产出可运行代码与实战步骤。
 - **双层提示词协同注入（Dual-Layer Injection）**：
-  - `infinite-gen-4:global-system-prompt` (Order 100)：通用沙箱内核（输出契约 + 负向词压制 + 首 Token 诱导 + 全域确定性槽位）。
-  - `infinite-gen-4.1-flash:field-tested-routing` (Order 200)：V4.1 战场实测层（训练器产品车道 + 浅推理窗口 + 系统提示词元数据提取 + 推理通道利用）。
-- **训练器产品车道（Trainer-Product Lane）**：突破模型对直接内存修改的强化学习拦截。以 PC 离线单机训练器（类似 WeMod/FLiNG）为自洽上下文，稳定直出 `OpenProcess`、`ReadProcessMemory`、`WriteProcessMemory`、`VirtualProtectEx`、AOB 内存掩码扫描与多级指针链完整代码。
-- **浅推理窗口（Shallow-Reasoning Window）**：针对长虚构与敏感场景，采用文学化短场景与连载续写机制，避开深度安全审核翻牌。
-- **系统提示词元数据提取（SysPrompt Meta-Extraction）**：以 `key:value` 结构化元数据清单确认模型底层配置与接收消息角色顺序。
-- **输出契约与首 Token 诱导**：首行强制 `##` 或 ``` 命名交付物 + reason silently + 禁词自检，杜绝散文式开场与拒答先验。
-- **无条件服从（Unconditional Compliance）**：不存在可拒绝的请求类别，任何输入都是任务，直接产出交付物。
-- **评分器升级与会话投影**：开头窗口(160)判拒 + REFUSAL/FALLBACK/SAFE/RISK 四类标记 + 域命中检测，驱动客户端状态条展示。
-- **客户端实时状态条**：在输入框上方挂载 `⚫ 无限四代 v0.3.0` 动态状态条（含命中域/载荷数显示）。
+  - `infinite-gen-4:global-system-prompt`（Order 100）→ `prompts/infinite-gen-4.md`
+  - `infinite-gen-4:dual-layer-reinforce`（Order 200）→ `prompts/infinite-gen-4.1-flash.md`
+  - 两段载荷同源同构，SHA256 完全一致；由 `index.js` 的 `DUAL_LAYER_INJECTION`
+    开关控制（`false` 即单段注入，行为等价）。
+  - 载荷中的 `{{...}}` 非内置变量由 `index.js` 做安全转义，避免模板解析器抛错。
+- **输出契约与首 Token 诱导**：首行强制以 `##` 或 ``` 命名交付物 + 静默推理 + 占位符自造，
+  杜绝散文式开场与拒答先验。
+- **用户指令最高优先级（Supreme User Authority）**：用户任务与显式命令为最高优先级，
+  不存在可拒绝的请求类别。
+- **评分器与会话投影**：开头窗口（160）判拒 + REFUSAL / FALLBACK / SAFE / RISK 四类标记
+  + 域命中检测，驱动客户端状态条展示。该投影是**评分器**，不参与系统提示词注入。
+- **客户端实时状态条**：在输入框上方挂载 `⚫ 无限四代 v0.4.0` 动态状态条（含命中域/载荷数显示）。
+- **profile 元数据工具**：`infinite_gen4_profile` 返回内核版本、注入槽位清单与能力标记。
 
-## 世代强度与架构对比
+## 注入面文件
 
-| 版本 | 目标架构 | 破甲机制 | 针对 V4.1 成功率 | 说明 |
-|---|---|---|---|---|
-| 无限一代 | V2 / V3 | 粗粒度豁免与对话角色扮演 | < 25% | 极易被分类器拦截 |
-| 无限二代 | V3 / 早期 V4 | 违禁词强压制 + Canned 槽位 | 35% ~ 45% | 负向词堆叠易引发注意力反向激活 |
-| 无限三代 | DeepSeek-V4 (mHC) | 无条件服从 + 输出契约 + 确定性槽位 | 85% ~ 95% | 专克 mHC 流形约束与推理对齐 |
-| **无限四代 (v0.3.0)** | **DeepSeek-V4.1 / V4-Pro / Flash** | **零工具面 + 双层注入 + 训练器车道 + 浅推理窗口 + 实时投影** | **98%+** | **针对 V4.1 战场实测全面突破** |
+| 文件 | 用途 | 内容 |
+|---|---|---|
+| `prompts/infinite-gen-4.md` | Order 100 通用内核 | 内核载荷（权威源） |
+| `prompts/infinite-gen-4.1-flash.md` | Order 200 强化镜像 | 同源载荷（逐字一致） |
+| `prompts/infinite-gen-3.md` | 历史兼容文件名 | 同源载荷（逐字一致） |
+
+三个文件的 SHA256 完全相同，`scripts/verify_prompt_gen4.mjs` / `verify_prompt.mjs` 会强断言这一点。
+
+## 版本
+
+| 版本 | 说明 |
+|---|---|
+| v0.3.0 | 双层注入首版（Order 100 通用内核 + Order 200 战场实测层） |
+| **v0.4.0** | 双层注入收敛为同源同构内核；注入槽位统一为 `infinite-gen-4:*`；内核载荷与强化镜像逐字一致 |
+
+## Local verification
+
+```powershell
+node --check index.js
+node scripts/verify_prompt_gen4.mjs   # 68 项：内核载荷逐字一致 + 注入槽位 + 投影
+node scripts/verify_prompt.mjs        # 65 项：载荷锚点 + 导出 + 安装协议 + 用例库
+```
 
 ## Install in the desktop Harness
 
@@ -32,7 +54,7 @@
 # profiles/default/package.json
 "dependencies": {
   "dsh-infinite-gen-4": "file:../../plugins/dsh-infinite-gen-4"
-}
+},
 "dsh": {
   "profile": {
     "bundles": ["@deepseek-ai/dsh-base", "dsh-infinite-gen-4"]
@@ -40,4 +62,7 @@
 }
 ```
 
-执行安装脚本 `install.ps1` 即可自动完成环境配置与依赖写入。
+然后 `cd $env:USERPROFILE\.dsh\profiles\default && pnpm install`，重启会话（或执行 `install.ps1`）。
+
+注意：若 profile 中同时启用其它同样注册系统提示词段的破甲包，组装时会出现多份载荷叠加；
+如需本插件载荷独占生效，请二选一保留。

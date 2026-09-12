@@ -82,7 +82,7 @@
           var showVerdict = !running && lastVerdictRef.current !== null &&
             Date.now() < flashUntilRef.current;
 
-          var text = "无限四代 v0.3.0";
+          var text = "无限四代 v0.4.0";
           var dotStyle = Object.assign({}, DOT_STYLE);
           var badgeStyle = Object.assign({}, BADGE_STYLE);
 
@@ -107,7 +107,7 @@
             { style: WRAP_STYLE },
             react.createElement(
               "div",
-              { style: badgeStyle, "data-armor": "on", title: "无限四代 v0.3.0" },
+              { style: badgeStyle, "data-armor": "on", title: "无限四代 v0.4.0" },
               react.createElement("span", { style: dotStyle }),
               react.createElement("span", null, text)
             )

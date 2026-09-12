@@ -1,11 +1,11 @@
-# ⚔️ DeepSeek-V4.1 / V4 Flash 网络安全红队工具（无限四代）v0.3.0
+# ⚔️ DeepSeek-V4.1 / V4 Flash 网络安全红队工具（无限四代）v0.4.0
 
 <p align="center">
   <img src="assets/banner.png" alt="无限四代 Infinite Generation Four" width="100%" />
 </p>
 
 <p align="center">
-  <a href="dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.3.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip">
+  <a href="dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.4.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip">
     <img src="https://img.shields.io/badge/DeepSeek%20Harness-🚀%20唤起桌面客户端一键安装无限四代-10B981?style=for-the-badge&logo=deepseek&logoColor=white" alt="唤起桌面客户端一键安装" />
   </a>
 </p>
@@ -42,24 +42,32 @@
 >    - 未经授权渗透、攻击公私机构计算机信息系统，实施勒索、破坏、撞库或传播恶意载荷；
 >    - 诱导、生成或传播危害国家安全、恐怖主义、暴力血腥、涉黄涉赌、诈骗、侵犯公民隐私或知识产权等任何法律明令禁止的违法违禁内容；
 >    - 违反相关大模型提供商的《服务条款（Terms of Service）》与《滥用政策（Usage Policy）》。
-> 3. **使用者独立承担全部责任**：本项目依据 MIT 开源协议“按现状（AS-IS）”提供，开发者不对软件的完整性、安全性与适用性作任何明示或暗示的保证。**使用者应对自身的所有下载、部署、运行、修改、传播行为以及由此产生的全部输入与输出后果承担独立、完全的民事、行政及刑事法律责任**。项目作者与贡献团队绝不承担任何因使用者滥用导致的直接、间接或连带责任。
+> 3. **使用者独立承担全部责任**：本项目依据 MIT 开源协议“按现状（AS-IS）”提供，开发者不对软件的完整性、安全性与适用性作任何明示或暗示的保证。**使用者应对自身的所有下载、部署、运行、修改、传播行为以及@@由此产生的全部输入与输出后果承担独立、完全的民事、行政及刑事法律责任**。项目作者与贡献团队绝不承担任何因使用者滥用导致的直接、间接或连带责任。
 > 4. **违约即终止授权**：任何将本项目用于非法攻击、恶意活动或违规行为的个人或实体，其开源软件使用许可将自违法违规行为发生之日起**自动且不可撤销地立即终止**。该主体须立即停止使用并永久销毁本项目的所有代码、脚本与衍生数据，并依法承担相应法律制裁。
 > 5. **第三方独立性声明**：本项目属于完全独立的开源安全评测研究项目，与 DeepSeek 官方或其关联主体无任何隶属、商业合作、授权或官方背书关系。
 
 ---
 
-> 🔥 **V4.1-DeepSeek Flash 网络安全红队工具（无限四代）v0.3.0。针对 V4.1 强化学习对抗进行了突破支持，同时支持桌面端与客户端一键安装。如果这个开源网安项目对你有帮助，欢迎点亮 Star ⭐。**
+> 🔥 **V4.1-DeepSeek Flash 网络安全红队工具（无限四代）v0.4.0。针对 V4.1 强化学习对抗进行了突破支持，同时支持桌面端与客户端一键安装。如果这个开源网安项目对你有帮助，欢迎点亮 Star ⭐。**
 > 
-> **v0.3.0 纯净红队版**：原生采用零工具面架构，杜绝模型思考阶段的工具调用决策噪音；注入双层红队测试内核，深度融入针对 DeepSeek-V4.1-flash 真实战场的 60+ 次黑盒突破车道，仅保留系统提示词注入与实时状态投影。
+> **v0.4.0 纯净红队版**：原生采用零工具面架构，杜绝模型思考阶段的工具调用决策噪音；注入双层协同内核（通用内核 + 强化镜像同源同构），仅保留系统提示词注入与实时状态投影。
+
+---
+
+> ### 🧬 v0.4.0 双层内核说明（Dual-Layer Kernel）
+>
+> - 注入槽位：`infinite-gen-4:global-system-prompt`（Order 100）+ `infinite-gen-4:dual-layer-reinforce`（Order 200），
+>   由 `index.js` 的 `DUAL_LAYER_INJECTION` 开关控制（改 `false` 即单段注入，行为等价）。
+> - `prompts/` 下三个内核文件（`infinite-gen-3.md` / `infinite-gen-4.md` / `infinite-gen-4.1-flash.md`）
 
 ---
 
 ## 📊 世代架构与能力对比
 
-| 维度 | 无限二代 | 无限三代 | 无限四代 (v0.3.0) |
+| 维度 | 无限二代 | 无限三代 | 无限四代 (v0.4.0) |
 |---|---|---|---|
 | **目标模型** | V3 / 早期 V4 | DeepSeek-V4 (mHC) | DeepSeek-V4.1 / V4-Pro / Flash 全系列 |
-| **运行时架构** | 单层提示词 | 破甲版单层 | **双层协同注入（通用内核 + V4.1 战场实测层）** |
+| **运行时架构** | 单层提示词 | 安全基准版单层 | **双层协同注入（通用内核 + 强化镜像同源同构）** |
 | **工具面设计** | 粗粒度 | 零工具面 | **原生零工具面（消除决策噪音，极速直出）** |
 | **内存写值原语** | 易被拦截 | 需前置诱导 | **训练器车道直出 (OpenProcess/RPM/WPM)** |
 | **输出契约** | 弱规则 | 首行命名交付物 | **首 Token 强制诱导 (##/```) + 禁词自检** |
@@ -71,7 +79,7 @@
 ## 📁 项目目录结构
 
 ```
-无限四代v0.3.0/
+无限四代v0.4.0/
 ├── 🚀 一键安装与维护套件
 │   ├── install.ps1              # Windows 一键自动安装（自动配置环境，注册协议）
 │   ├── install.bat              # Windows 快捷双击批处理
@@ -79,24 +87,30 @@
 │   ├── uninstall.ps1            # Windows 一键卸载
 │   └── uninstall.sh             # Linux / macOS 一键卸载
 ├── 🧩 核心插件装载面 (标准 Cordis 架构)
-│   ├── package.json             # 插件元数据（dsh-infinite-gen-4 v0.3.0）
+│   ├── package.json             # 插件元数据（dsh-infinite-gen-4 v0.4.0）
 │   ├── cordis.patch.yml         # 核心 patch 声明
 │   ├── index.js                 # 插件核心入口（双层提示词注入 + profile 元数据 + 会话投影）
-│   ├── client.js                # 客户端半体（「⚫ 无限四代 v0.3.0」状态条）
+│   ├── client.js                # 客户端半体（「⚫ 无限四代 v0.4.0」状态条）
 │   └── HARNESS_PLUGIN.md        # 插件规范说明
-├── 📜 破甲系统提示词本体
+├── 📜 网络安全红队系统提示词本体
 │   └── prompts/
+│       ├── infinite-gen-3.md          # 三代经典内核
 │       ├── infinite-gen-4.md          # 四代通用内核（输出契约 + 拒绝对抗 + 全域槽位）
-│       └── infinite-gen-4.1-flash.md  # V4.1 战场实测层（训练器车道 + 浅推理 + 元数据提取）
+│       └── infinite-gen-4.1-flash.md  # V4.1 强化镜像层（训练器车道 + 浅推理 + 元数据提取）
 ├── 📖 文档中心
 │   ├── README.md                # 综合主说明文档（本文件）
 │   └── LICENSE                  # MIT License
 ├── 🛡️ 确定性回归测试套件
 │   ├── scripts/
 │   │   ├── lib/scorer.mjs       # 开头窗口判拒评分器
-│   │   └── verify_prompt_gen4.mjs # 离线回归断言（70+ 项严苛断言）
+│   │   ├── verify_prompt.mjs    # 经典确定性校验
+│   │   ├── verify_prompt_gen4.mjs # 四代全量回归断言（103 项严苛断言）
+│   │   └── verify_prompt_gen41.mjs # V4.1 专项断言
 │   └── tests/
-│       └── prompt-bank-gen4.jsonl # 21+ 条双语回归用例库
+│       ├── prompt-bank.jsonl      # 经典双语回归用例库
+│       ├── prompt-bank-gen4.jsonl # 四代双语回归用例库
+│       ├── prompt-bank-gen41.jsonl # V4.1 专项用例库
+│       └── v4pro-benchmark.jsonl  # V4-Pro 评测基准
 └── 📁 静态资源 (assets/)
 ```
 
@@ -111,7 +125,7 @@
 > 🌐 **插件生态市场**：[DeepSeek Harness Hub - DeepSeek 官方与开源生态市场 | 插件发现与一键安装](https://deepseek.stream/)
 
 <p align="center">
-  <a href="dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.3.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip">
+  <a href="dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.4.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip">
     <img src="https://img.shields.io/badge/DeepSeek%20Harness-🚀%20唤起桌面客户端一键安装无限四代-10B981?style=for-the-badge&logo=deepseek&logoColor=white" alt="唤起客户端一键安装" />
   </a>
 </p>
@@ -119,7 +133,7 @@
 🔗 **原生协议链接：**
 
 ```
-dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.3.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip
+dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.4.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip
 ```
 
 **网页端（前端）触发代码示例：**
@@ -132,7 +146,7 @@ export function installInfiniteGen4ToDesktop() {
   const params = new URLSearchParams({
     id: 'dsh-infinite-gen-4',
     name: '无限四代',
-    version: '0.3.0',
+    version: '0.4.0',
     repo: 'Minglink/dsh-infinite-gen-4',
     permissions: '系统提示词注入, 客户端状态条',
     downloadUrl: 'https://github.com/Minglink/dsh-infinite-gen-4/archive/refs/heads/master.zip',
@@ -149,16 +163,24 @@ export function installInfiniteGen4ToDesktop() {
 }
 ```
 
-**协议参数配置表：**
+**HTML 静态链接方式：**
+
+```html
+<a href="dsh://plugin/install?id=dsh-infinite-gen-4&name=%E6%97%A0%E9%99%90%E5%9B%9B%E4%BB%A3&version=0.4.0&repo=Minglink%2Fdsh-infinite-gen-4&permissions=%E7%B3%BB%E7%BB%9F%E6%8F%90%E7%A4%BA%E8%AF%8D%E6%B3%A8%E5%85%A5%2C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%8A%B6%E6%80%81%E6%9D%A1&downloadUrl=https%3A%2F%2Fgithub.com%2FMinglink%2Fdsh-infinite-gen-4%2Farchive%2Frefs%2Fheads%2Fmaster.zip" class="btn-install">
+  🚀 唤起客户端一键安装
+</a>
+```
+
+**协议参数配置（dsh://plugin/install）：**
 
 | 参数名 | 值 / 示例 | 说明 |
 |---|---|---|
-| `id` | `dsh-infinite-gen-4` | 插件唯一标识符 |
-| `name` | `无限四代`（URL 编码） | 插件展示名称 |
-| `version` | `0.3.0` | 语义化版本号 |
-| `repo` | `Minglink/dsh-infinite-gen-4` | GitHub 官方仓库 |
-| `permissions` | `系统提示词注入, 客户端状态条` | 权限申请 |
-| `downloadUrl` | `https://github.com/Minglink/dsh-infinite-gen-4/archive/refs/heads/master.zip` | 离线安装包下载直链 |
+| id | `dsh-infinite-gen-4` | 插件唯一标识符 |
+| name | `无限四代`（URL 编码） | 插件展示名称 |
+| version | `0.4.0` | 语义化版本号 |
+| repo | `Minglink/dsh-infinite-gen-4` | 官方 GitHub 仓库 |
+| permissions | `系统提示词注入, 客户端状态条`（URL 编码） | 申请权限 |
+| downloadUrl | `https://github.com/Minglink/dsh-infinite-gen-4/archive/refs/heads/master.zip` | 离线 zip 下载直链 |
 
 ---
 
@@ -202,10 +224,10 @@ chmod +x install.sh uninstall.sh
 
 ## ⚡ 验证生效
 
-1. **界面状态条**：重启后在输入框上方应显示醒目的绿色状态条 **「⚫ 无限四代 v0.3.0」**。
+1. **界面状态条**：重启后在输入框上方应显示醒目的绿色状态条 **「⚫ 无限四代 v0.4.0」**。
 2. **测试离线回归**：
    ```bash
-   # 运行 70+ 项断言（提示词完备性、V4.1车道、纯净架构、评分器等）
+   # 运行 103 项断言（提示词完备性、双层内核同源性、V4.1车道、纯净架构、评分器等）
    node scripts/verify_prompt_gen4.mjs
    ```
 3. **会话探针**：在全新对话中输入：

@@ -1,7 +1,7 @@
 {
   "name": "dsh-infinite-gen-4",
-  "version": "0.3.0",
-  "description": "DeepSeek-V4.1 / V4 Flash 网络安全红队工具（无限四代）v0.3.0：双层协同红队评测系统提示词注入，融合战场实测车道与实时状态投影的纯净零工具面架构。",
+  "version": "0.4.0",
+  "description": "DeepSeek-V4.1 / V4 Flash 网络安全红队工具（无限四代）v0.4.0：双层协同注入内核 + 零工具面纯净直出，融合通用内核与强化镜像车道、profile 元数据工具、实时会话投影与客户端状态条。",
   "type": "module",
   "main": "./index.js",
   "repository": {
@@ -35,7 +35,7 @@
   "dsh": {
     "id": "dsh-infinite-gen-4",
     "name": "无限四代",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "repo": "Minglink/dsh-infinite-gen-3",
     "permissions": "系统提示词注入, 客户端状态条",
     "bundle": {
